@@ -5,11 +5,11 @@
     "version": "${version}",
 
     "depends": {
-        "java": ">=21",
+        "java": ">=17",
         "minecraft": ">=${mcversion}",
         "fabricloader": ">=0.14.0",
         "fabric": "*",
-        "architectury": ">=12.1.2"
+        "architectury": ">=9.0.0"
     },
 
     "name": "Crab Claws",
@@ -38,5 +38,8 @@
         "main": [
             "dev.foxgirl.crabclaws.CrabclawsMod"
         ]
-    }
+    },
+    "mixins": [
+        "crabclaws.mixins.json"
+    ]
 }
