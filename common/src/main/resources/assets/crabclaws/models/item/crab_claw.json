@@ -1,0 +1,7 @@
+{
+  "parent": "crabclaws:custom/crab_claw",
+  "textures": {
+    "1": "crabclaws:block/crab_claw",
+    "particle": "crabclaws:item/crab_claw"
+  }
+}

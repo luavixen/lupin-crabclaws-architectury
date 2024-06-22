@@ -1,0 +1,42 @@
+{
+    "schemaVersion": 1,
+
+    "id": "crabclaws",
+    "version": "${version}",
+
+    "depends": {
+        "java": ">=21",
+        "minecraft": ">=${mcversion}",
+        "fabricloader": ">=0.14.0",
+        "fabric": "*",
+        "architectury": ">=12.1.2"
+    },
+
+    "name": "Crab Claws",
+    "description": "Place/Break blocks from a distance with these Crab Claws!",
+
+    "icon": "assets/crabclaws/icon.png",
+
+    "license": "UNLICENSED",
+    "authors": [
+        {
+            "name": "luavixen",
+            "contact": {
+                "email": "lua@foxgirl.dev",
+                "website": "https://foxgirl.dev/"
+            }
+        },
+        {
+            "name": "Lupin",
+            "contact": {
+                "website": "https://www.youtube.com/@LupinYT"
+            }
+        }
+    ],
+
+    "entrypoints": {
+        "main": [
+            "dev.foxgirl.crabclaws.CrabclawsMod"
+        ]
+    }
+}

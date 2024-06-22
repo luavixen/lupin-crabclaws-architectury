@@ -1,0 +1,28 @@
+pluginManagement {
+    repositories {
+        maven {
+            name = 'Fabric'
+            url = 'https://maven.fabricmc.net/'
+        }
+        maven {
+            name = 'Forge'
+            url = 'https://files.minecraftforge.net/maven/'
+        }
+        maven {
+            name = 'Architectury'
+            url = 'https://maven.architectury.dev/'
+        }
+        maven {
+            name = 'NeoForged'
+            url = 'https://maven.neoforged.net/releases/'
+        }
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = "crabclaws"
+
+include("common")
+include("fabric")
+include("neoforge")

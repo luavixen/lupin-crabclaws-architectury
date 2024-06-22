@@ -1,0 +1,37 @@
+modLoader = "javafml"
+loaderVersion = "[1,)"
+
+license = "UNLICENSED"
+
+[[mods]]
+modId = "crabclaws"
+version = "${version}"
+
+displayName = "Crab Claws"
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/crab-claws"
+
+authors = "lupiiin_, luavixen <lua@foxgirl.dev> (https://foxgirl.dev/)"
+description = "Place/Break blocks from a distance with these Crab Claws!"
+
+logoFile = "assets/crabclaws/icon.png"
+
+[[dependencies.crabclaws]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.crabclaws]]
+modId = "minecraft"
+type = "required"
+versionRange = "[${mcversion},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.crabclaws]]
+modId = "architectury"
+type = "required"
+versionRange = "[12.1.2,)"
+ordering = "AFTER"
+side = "BOTH"
