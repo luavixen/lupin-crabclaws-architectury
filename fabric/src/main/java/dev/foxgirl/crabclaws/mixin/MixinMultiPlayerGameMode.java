@@ -21,10 +21,10 @@ public abstract class MixinMultiPlayerGameMode {
         var player = Minecraft.getInstance().player;
         if (player != null) {
             if (
-                player.getMainHandItem().getItem() == CrabclawsImpl.CRAB_CLAW.get() ||
-                player.getOffhandItem().getItem() == CrabclawsImpl.CRAB_CLAW.get()
+                player.getMainHandItem().getItem() == CrabclawsImpl.getInstance().getCrabClawItem() ||
+                player.getOffhandItem().getItem() == CrabclawsImpl.getInstance().getCrabClawItem()
             ) {
-                info.setReturnValue(info.getReturnValueF() + 3.0F);
+                info.setReturnValue(info.getReturnValueF() + (float) CrabclawsImpl.getInstance().config.clawExtraReachAmount);
             }
         }
     }

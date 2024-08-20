@@ -1,5 +1,6 @@
 package dev.foxgirl.crabclaws.mixin;
 
+import dev.foxgirl.crabclaws.CrabclawsImpl;
 import net.minecraft.server.network.ServerGamePacketListenerImpl;
 import net.minecraft.util.Mth;
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,7 +13,10 @@ public abstract class MixinServerGamePacketListenerImpl {
     public static double MAX_INTERACTION_DISTANCE;
 
     static {
-        MAX_INTERACTION_DISTANCE = Mth.square(10.0);
+        MAX_INTERACTION_DISTANCE = Math.max(
+            MAX_INTERACTION_DISTANCE,
+            Mth.square(7.0 + CrabclawsImpl.getInstance().config.clawExtraReachAmount)
+        );
     }
 
 }
