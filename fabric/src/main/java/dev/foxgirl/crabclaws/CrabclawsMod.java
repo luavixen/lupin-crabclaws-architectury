@@ -9,9 +9,9 @@ public class CrabclawsMod implements ModInitializer {
     @Override
     public void onInitialize() {
         new CrabclawsImpl();
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
-            entries.prepend(CrabclawsImpl.CRAB_CLAW.get());
-        });
+        ItemGroupEvents
+            .modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
+            .register(entries -> entries.prepend(CrabclawsImpl.getInstance().getCrabClawItem()));
     }
 
 }

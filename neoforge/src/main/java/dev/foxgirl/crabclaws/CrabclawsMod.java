@@ -13,9 +13,9 @@ public class CrabclawsMod {
         modEventBus.addListener(this::onBuildCreativeModeTabContents);
     }
 
-    public void onBuildCreativeModeTabContents(BuildCreativeModeTabContentsEvent event) {
+    private void onBuildCreativeModeTabContents(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            event.accept(CrabclawsImpl.CRAB_CLAW.get());
+            event.accept(CrabclawsImpl.getInstance().getCrabClawItem());
         }
     }
 
