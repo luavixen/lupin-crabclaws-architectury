@@ -1,5 +1,6 @@
 package dev.foxgirl.crabclaws.mixin;
 
+import dev.foxgirl.crabclaws.CrabclawsConfig;
 import dev.foxgirl.crabclaws.CrabclawsImpl;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientPacketListener;
@@ -24,7 +25,7 @@ public abstract class MixinMultiPlayerGameMode {
                 player.getMainHandItem().getItem() == CrabclawsImpl.getInstance().getCrabClawItem() ||
                 player.getOffhandItem().getItem() == CrabclawsImpl.getInstance().getCrabClawItem()
             ) {
-                info.setReturnValue(info.getReturnValueF() + (float) CrabclawsImpl.getInstance().config.clawExtraReachAmount);
+                info.setReturnValue(info.getReturnValueF() + (float) CrabclawsConfig.getConfig().clawExtraReachAmount);
             }
         }
     }
