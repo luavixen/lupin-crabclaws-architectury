@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 import dev.architectury.platform.Platform;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
@@ -17,7 +19,11 @@ public class CrabclawsConfig {
     public boolean shouldSpawnClawsInRuins = true;
     public int probabilityOfClawsInRuins = 7;
 
-    public static CrabclawsConfig loadConfig() {
+    private static final CrabclawsConfig CONFIG = loadConfig();
+
+    private static CrabclawsConfig loadConfig() {
+        Logger logger = LogManager.getLogger();
+
         Gson gson = new GsonBuilder().serializeNulls().setPrettyPrinting().create();
 
         Path configPath = Platform.getConfigFolder().resolve("crabclaws.json");
@@ -26,11 +32,11 @@ public class CrabclawsConfig {
         try {
             return gson.fromJson(Files.newBufferedReader(configPath), CrabclawsConfig.class);
         } catch (NoSuchFileException cause) {
-            CrabclawsImpl.LOGGER.warn("Config file not found, will be created");
+            logger.warn("Config file not found, will be created");
         } catch (JsonParseException cause) {
-            CrabclawsImpl.LOGGER.error("Failed to parse config file", cause);
+            logger.error("Failed to parse config file", cause);
         } catch (Exception cause) {
-            CrabclawsImpl.LOGGER.error("Failed to load config file", cause);
+            logger.error("Failed to load config file", cause);
         }
 
         CrabclawsConfig config = new CrabclawsConfig();
@@ -39,10 +45,14 @@ public class CrabclawsConfig {
             Files.writeString(tempPath, gson.toJson(config, CrabclawsConfig.class));
             Files.move(tempPath, configPath, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception cause) {
-            CrabclawsImpl.LOGGER.error("Failed to save new config file", cause);
+            logger.error("Failed to save new config file", cause);
         }
 
         return config;
+    }
+
+    public static CrabclawsConfig getConfig() {
+        return CONFIG;
     }
 
 }
